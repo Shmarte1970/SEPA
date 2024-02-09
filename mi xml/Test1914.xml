@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.008.001.02">
+    <CstmrDrctDbtInitn> <!--Raiz del Mensaje-->
+        <GrpHdr> <!--Cabecera-->
+            <MsgId>1</MsgId> <!--ID del Fichero-->
+            <CreDtTm>2024-01-02T00:00:00</CreDtTm> <!--Fecha de Creacion (PRM modelo fecha facilitado por ENT )-->
+            <NbOfTxs>1</NbOfTxs> <!--Numero de Operaciones-->
+            <CtrlSum>867.21</CtrlSum> <!--Control de Suma-->
+            <InitgPty>
+                <Nm>Cloud Mountain, S.L.</Nm> <!--Nombre Presentador-->
+                <Id>
+                    <OrgId>
+                        <Othr>
+                            <Id>ES13000B65767030</Id> <!--Identificacion Presentador-->
+                        </Othr>
+                    </OrgId>
+                </Id>
+            </InitgPty>
+        </GrpHdr>
+        <PmtInf> <!--Informacion Pago-->
+            <PmtInfId>ES13000B65767030</PmtInfId> <!--Identificacion Presentador-->
+            <PmtMtd>DD</PmtMtd> <!--Metodo de pago-->
+            <NbOfTxs>1</NbOfTxs> <!--Numero de operaciones-->
+            <CtrlSum>867.21</CtrlSum> <!--Control de suma-->
+            <PmtTpInf> <!--Informacion del tipo de pago-->
+                <SvcLvl> <!--Nivel de Servicio-->
+                    <Cd>SEPA</Cd> <!--Codigo-->
+                </SvcLvl>
+                <LclInstrm>
+                    <Cd>CORE</Cd>
+                </LclInstrm>
+            </PmtTpInf>
+            <ReqdColltnDt>2024-02-20</ReqdColltnDt> <!--Fecha de cobro-->
+            <Cdtr> <!--Acreedor-->
+                <Nm>ZARCA, S.L.</Nm> <!--Nombre-->
+                <PstlAdr> <!--Direccion Postal-->
+                        <Ctry>ES</Ctry>  <!--(PRM ES Espanya segun documento Caixa no es necesario informas este tag y dejo vacio el AdrLine solicitar información  )-->
+                        <AdrLine>Carrer Electricitat, 2</AdrLine> <!--Direccion en texto libre (PRM consultar si es Obligatorio informar este tag)-->
+                </PstlAdr>
+                <Id> <!--Identificacion-->
+                    <OrgId>
+                        <Othr> <!--Otros-->
+                            <Id>ES13000B65767030</Id> <!--Identificacion  (PRM Identificador facilitado por ENT)-->
+                        </Othr>
+                    </OrgId>
+                </Id>
+            </Cdtr>
+            <CdtrAcct> <!--Cuenta del Acreedor-->
+                <Id> <!--Identificacion-->
+                    <IBAN>ES8201280532010500009727</IBAN> <!--IBAN del ACREEDOR-->
+                </Id>
+                <Ccy>EUR</Ccy> <!--Moneda-->
+            </CdtrAcct>
+            <CdtrAgt> <!--Entidad del acreedor-->
+                <FinInstnId> <!--Identificacion de la entidad-->
+                    <BIC>BKBKESMMXXX</BIC> <!--BIC de la entidad-->
+                </FinInstnId>
+            </CdtrAgt>
+            <ChrgBr>SLEV</ChrgBr> <!--Clausula de gastos  (PRM solo se admite SLEV)-->
+            <DrctDbtTxInf> <!--Informacion de la operacion de adeudo directo-->
+                <PmtId><!--Identificacion del pago-->
+                    <InstrId>F23003780-1</InstrId> <!--(PRM Informa id recibo min 1 max 35 length)-->                    
+                    <EndToEndId>F23003780-1</EndToEndId> <!--Identificacion de la operacion-->
+                </PmtId>
+                <PmtTpInf> <!--Informacion del tipo de pago-->
+                    <SeqTp>RCUR</SeqTp> <!--Tipo de secuencia AT-21-->
+                    <CtgyPurp> <!--Categoria del Proposito-->
+                        <Cd>14</Cd> <!--Codigo AT-59--> 
+                    </CtgyPurp>
+                </PmtTpInf>
+                <InstdAmt Ccy="EUR">867.21</InstdAmt> <!--Importe ordenado-->
+                <DrctDbtTx> <!--Informacion de la operacion de adeudo directo-->
+                    <MndtRltdInf> <!--Informacion del mandato-->
+                        <MndtId>F23003780-1</MndtId> <!--Identificacion del mandato (PRM voy a identificarlo con el numero de factura)-->
+                        <DtOfSgntr>2024-01-02</DtOfSgntr> <!--Fecha de firma-->
+                        <AmdmntInd>false</AmdmntInd> <!--Indicador de modificacion-->
+                    </MndtRltdInf>
+                    <CdtrSchmeId> <!--Identificacion del acreedor-->
+                        <Id> <!--Identificacion-->
+                            <OrgId>
+                                <Othr>
+                                    <Id>ES13000B65767030</Id> <!--(PRM informado codigo acreedor)-->
+                                    <SchmeNm>
+                                        <Prtry>SEPA</Prtry>
+                                    </SchmeNm>
+                                </Othr>
+                            </OrgId>
+                        </Id>
+                    </CdtrSchmeId>
+                </DrctDbtTx>
+                <DbtrAgt> <!--Entidad del deudor-->
+                    <FinInstnId> <!--Identificacion de la entidad-->
+                        <BIC>BBVAESMM</BIC>  <!--(PRM Identificado BIC del Bco del Deudor se entiende que por cada Bco el BIC es diferente)-->
+                    </FinInstnId>
+                </DbtrAgt>
+                <Dbtr> <!--Deudor-->
+                    <Nm>Cloud Mountain, S.L.</Nm> <!--Nombre-->
+                    <PstlAdr> <!--Direccion Postal-->
+                        <Ctry>ES</Ctry> <!--PRM Codigo del Pais -->
+                        <AdrLine>No es importante</AdrLine> <!--Direccion en texto libre (PRM Aqui tendremos un problema pq de la tabla recibo no sale separados la dirección del Nombre voy a poner cualquier cosa) -->
+                    </PstlAdr>
+                    <Id> <!--Identificacion-->
+                      <OrgId>
+                        <Othr> <!--Otros-->
+                            <Id>ES13000B67614832</Id> <!--Identificacion del deudor (PRM ES Espanya, 13=iban, pongo 000 igual que el nuestro pero 182  es el cod BBVA dado por IA, BXXX cif deudor)-->
+                        </Othr>
+                      </OrgId>
+                    </Id>
+                    <CtryOfRes>ES</CtryOfRes>
+                </Dbtr>
+                <DbtrAcct><!--Cuenta del deudor-->
+                    <Id> <!--Identificacion-->
+                        <IBAN>ES9101825117070201584996</IBAN> <!--IBAN DEUDOR-->
+                    </Id>
+                    <Ccy>EUR</Ccy> <!--Moneda-->
+                </DbtrAcct>
+                <Purp> <!--Proposito-->
+                    <Cd>14</Cd> <!--Codigo AT-59-->
+                </Purp>
+                <!--  PRM Estos tags no son necesarios <RgltryRptg>
+                    <DbtCdtRptgInd></DbtCdtRptgInd>
+                    <Dtls>
+                        <Cd></Cd>    
+                    </Dtls>
+                </RgltryRptg> -->
+                <RmtInf> <!--Concepto RemittanceInformation-->
+                    <Ustrd>F23003780-1</Ustrd>
+                </RmtInf>
+            </DrctDbtTxInf>
+        </PmtInf>
+    </CstmrDrctDbtInitn>
+</Document>
